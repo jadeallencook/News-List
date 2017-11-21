@@ -12,8 +12,8 @@ chrome.extension.sendMessage({}, function (response) {
 				// main mail window
 				if (window.location.search.length === 0) {
 					// add dump btn to gmail
-					dumpBtnHTML = '<div class="T-I J-J5-Ji T-I-KE L3" style="margin-top: 5px;" id="dump-btn">News List</div>';
-					document.querySelector('.z0').innerHTML += dumpBtnHTML;
+					dumpBtnHTML = '<div class="G-Ni J-J5-Ji"><div class="T-I T-I-ax7" id="dump-btn">Daily</div></div>';
+					document.querySelector('.G-tF').innerHTML += dumpBtnHTML;
 					// dump btn event listener
 					document.getElementById('dump-btn').addEventListener('click', () => {
 						// format date
