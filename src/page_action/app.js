@@ -9,7 +9,7 @@ const titleInputElem = document.getElementById('title'),
 
 // build vars
 let articles = [];
-chrome.storage.sync.get('articles', (data) => {
+chrome.storage.local.get('articles', (data) => {
   if (!data.articles) articles = [];
   else articles = data.articles;
   setArticleNum();
@@ -35,7 +35,7 @@ addBtn.addEventListener('click', () => {
     link: linkInputElem.value,
     type: articleType.value
   })
-  chrome.storage.sync.set({
+  chrome.storage.local.set({
     'articles': articles
   }, () => {
     setArticleNum();
@@ -44,7 +44,7 @@ addBtn.addEventListener('click', () => {
 
 // clear btn
 clearBtn.addEventListener('click', () => {
-  chrome.storage.sync.set({
+  chrome.storage.local.set({
     'articles': []
   }, () => {
     articles = [];
