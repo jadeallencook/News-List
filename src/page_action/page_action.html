@@ -32,6 +32,16 @@
 		display: block;
 		margin-top: 10px;
 	}
+	#option-btns {
+		display: inline-block;
+	}
+	#clear-confirm {
+		display: none;
+	}
+	a {
+		color: blue;
+		cursor: pointer;
+	}
 </style>
 
 <div id="mainPopup">
@@ -55,8 +65,15 @@
 		<option value="tech">Tech</option>
 	</select>
 	<!-- plugin actions -->
-	<button id="add">Add</button>
-	<button id="clear">Clear</button>
+	<div id="option-btns">
+		<button id="add">Add</button>
+		<button id="clear">Clear</button>
+	</div>
+	<div id="clear-confirm">
+		Are you sure? 
+		<a id="yes-clear">Yes</a> or 
+		<a id="no-clear">No</a>
+	</div>
 	<!-- articles count -->
 	<span id="articles">0 Article(s)</span>
 	<!-- js -->

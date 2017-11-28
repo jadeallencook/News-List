@@ -5,7 +5,11 @@ const titleInputElem = document.getElementById('title'),
   clearBtn = document.getElementById('clear'),
   dumpBtn = document.getElementById('dump'),
   articleType = document.getElementById('type'),
-  articleCountElem = document.getElementById('articles');
+  articleCountElem = document.getElementById('articles'),
+  optionBtnsElem = document.getElementById('option-btns'),
+  clearConfirmElem = document.getElementById('clear-confirm')
+yesClear = document.getElementById('yes-clear'),
+  noClear = document.getElementById('no-clear');
 
 // build vars
 let articles = [];
@@ -44,12 +48,24 @@ addBtn.addEventListener('click', () => {
 
 // clear btn
 clearBtn.addEventListener('click', () => {
+  optionBtnsElem.style.display = 'none';
+  clearConfirmElem.style.display = 'inline-block';
+});
+
+yesClear.addEventListener('click', () => {
   chrome.storage.local.set({
     'articles': []
   }, () => {
     articles = [];
     setArticleNum();
   });
+  optionBtnsElem.style.display = 'inline-block';
+  clearConfirmElem.style.display = 'none';
+});
+
+noClear.addEventListener('click', () => {
+  optionBtnsElem.style.display = 'inline-block';
+  clearConfirmElem.style.display = 'none';
 });
 
 // dev options
