@@ -36,19 +36,13 @@ chrome.extension.sendMessage({}, function (response) {
 							chrome.storage.local.get('articles', (data) => {
 								// get content for each section
 								for (let article of data.articles) {
-									// if output does not have type
-									if (!output[article.type]) {
-										// add to output/types
-										output[article.type] = '';
-										types.push(article.type);
-									}
 									// generate html for output
 									output[article.type] += article.title + '<br>';
 									output[article.type] += '<a href="' + article.link + '" target="_blank">' + article.link + '</a><br><br>';
 								}
 								// add section title/icon
 								let emailHTML = '';
-								for (let type of types) {
+								for (let type of ['general', 'politics', 'industry', 'beehive', 'deep', 'family', 'faith', 'pop', 'sports', 'money', 'tech']) {
 									if (type === 'general') {
 										emailHTML += '<font color="#ff0000" size="4"><b>GENERAL NEWS&nbsp;<img goomoji="1f4f0" data-goomoji="1f4f0" style="margin:0 0.2ex;vertical-align:middle;max-height:24px" src="https://mail.google.com/mail/e/1f4f0" class="CToWUd"></b></font><br><br>';
 									} else if (type === 'politics') {
