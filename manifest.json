@@ -1,6 +1,6 @@
 {
   "name": "News List",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 2,
   "description": "Create a list of top news stories to dump into an email.",
   "homepage_url": "http://www.jadeallencook.com",
